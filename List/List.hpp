@@ -6,7 +6,7 @@
 /*   By: amoujane <amoujane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 16:04:52 by amoujane          #+#    #+#             */
-/*   Updated: 2021/02/19 17:30:16 by amoujane         ###   ########.fr       */
+/*   Updated: 2021/02/27 17:20:01 by amoujane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -327,7 +327,7 @@ namespace ft {
 			iterator it = begin();
 			++it;
 			while (it != end()) {
-				if (binary_pred(*it, *it.getprev()->data))
+				if (binary_pred(*it, it.getprev()->data))
 					it = erase(it);
 				else
 					++it;
@@ -356,13 +356,6 @@ namespace ft {
 				++it;
 			}
 		}
-		template<typename value_type>
-		bool	less_than(const value_type& a, const value_type& b) {
-			return (a < b);
-		}
-		void	merge(list& x) {
-			this->merge(x, &less_than<value_type>);
-		}
 		template <class Compare>
 		void merge (list& x, Compare comp) {
 			if (&x == this)
@@ -378,6 +371,9 @@ namespace ft {
 			if (xit != x.end())
 				this->splice(it, x, xit, x.end());
 		}
+		void	merge(list& x) {
+			this->merge(x, &ft::less_than<value_type>);
+		}
 		void	reverse() {
 			iterator it = begin();	
 			while (it != end()) {
@@ -387,6 +383,29 @@ namespace ft {
 			itemswap(head->prev, head->next);
 			itemswap(tail->prev, tail->next);
 			itemswap(head, tail);
+		}
+	private:
+		void	refreshouterpointers(node<T> *a) {
+			if (a->prev)
+				a->prev->next = a;
+			if (a->next)
+				a->next->prev = a;
+		}
+		void	swap(node<T> *first, node<T> *second) {
+			if (first == second)
+				return ;
+			if (second->next == first) {
+        		node<T> *temp = first;
+       			first = second;
+        		second = temp;
+    		}
+			node<T>	*swappervector[4] = { first->prev, second->prev, first->next, second->next };
+			first->prev = swappervector[2];
+			second->prev = swappervector[0];
+			first->next = swappervector[3];
+			second->next = swappervector[1];
+			refreshouterpointers(first);
+			refreshouterpointers(second);
 		}
 	};
 

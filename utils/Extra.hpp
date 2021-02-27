@@ -6,7 +6,7 @@
 /*   By: amoujane <amoujane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 14:25:41 by amoujane          #+#    #+#             */
-/*   Updated: 2021/02/16 15:38:27 by amoujane         ###   ########.fr       */
+/*   Updated: 2021/02/27 16:23:35 by amoujane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 namespace ft {
 	template<typename Iterator>
-	ptrdiff_t distance(Iterator first, Iterator last) { //, typename ft::check_type<typename ft::iterator_traits<Iterator>::iterator_category>::type* = 0) {
+	ptrdiff_t distance(Iterator first, Iterator last) {
 		ptrdiff_t dist = 0;
 		while (first != last) {
 			++dist;
@@ -27,16 +27,17 @@ namespace ft {
 		return dist;
 	}
 	template <class InputIterator, class Distance>
-	void advance (InputIterator& it, Distance n) { //typename ft::check_type<typename ft::iterator_traits<InputIterator>::iterator_category>::type* = 0) {
+	void advance (InputIterator& it, Distance n) {
 		if (n > 0)
 			while (n) {
 				++it;
 				--n;
 			}
-		else while (n) {
+		else 
+			while (n) {
 			--it;
 			++n;
-		}
+			}
 	}
 	template< typename S >
 	void	itemswap(S& var1, S& var2) {
