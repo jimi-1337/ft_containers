@@ -6,7 +6,7 @@
 /*   By: amoujane <amoujane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 16:04:52 by amoujane          #+#    #+#             */
-/*   Updated: 2021/02/27 17:20:01 by amoujane         ###   ########.fr       */
+/*   Updated: 2021/03/02 18:21:20 by amoujane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,13 +111,13 @@ namespace ft {
 		reverse_iterator		rbegin() {
 			return reverse_iterator(this->tail->prev);
 		}
-		const_reverse_iterator	rbegin() const {
+		const_reverse_iterator	crbegin() const {
 			return const_reverse_iterator(this->tail->prev);
 		}
 		reverse_iterator		rend() {
 			return reverse_iterator(this->head);
 		}
-		const_reverse_iterator	rend() const {
+		const_reverse_iterator	crend() const {
 			return const_reverse_iterator(this->head);
 		}
 		/* Capacity */
