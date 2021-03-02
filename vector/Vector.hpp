@@ -6,7 +6,7 @@
 /*   By: amoujane <amoujane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 14:15:09 by amoujane          #+#    #+#             */
-/*   Updated: 2021/02/18 16:48:59 by amoujane         ###   ########.fr       */
+/*   Updated: 2021/02/28 16:02:45 by amoujane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ namespace ft {
 		size_type		_capacity;
 		allocator_type	_alloc;
 	public:
-		explicit vector (const allocator_type& alloc = allocator_type()) : _array(0), _size(0), _capacity(0), _alloc(alloc) {
+		explicit vector (const allocator_type& alloc = allocator_type()) : _array(NULL), _size(0), _capacity(0), _alloc(alloc) {
 		}
 		explicit vector (size_type n, const value_type& val = value_type(), const allocator_type& alloc = allocator_type()) : _size(n), _capacity(n), _alloc(alloc) {
 			this->_array = new value_type[n]();
@@ -137,12 +137,12 @@ namespace ft {
 		}
 		reference		at(size_type n) {
 			if (n >= this->_size)
-				throw std::out_of_range("out of range");
+				throw std::out_of_range("vector");
 			return this->_array[n];
 		}
 		const_reference	at(size_type n) const {
 			if (n >= this->_size)
-				throw std::out_of_range("out of range");
+				throw std::out_of_range("vector");
 			return this->_array[n];
 		}
 		reference		front() {

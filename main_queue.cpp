@@ -6,50 +6,86 @@
 /*   By: amoujane <amoujane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 16:24:32 by amoujane          #+#    #+#             */
-/*   Updated: 2021/02/18 16:38:45 by amoujane         ###   ########.fr       */
+/*   Updated: 2021/03/01 15:50:33 by amoujane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "queue/queue.hpp"
 #include <queue>
 
+void print_queue(ft::queue<int> a)
+{
+    while(a.size())
+    {
+        std::cout << a.front() << std::endl;
+        a.pop();
+    }
+}
+
 int main()
 {
-    ft::queue<int> a;
-    ft::queue<int> b;
-    std::queue<int> y;
-    std::queue<int> x;
+	{
+		ft::queue<int> MyQueue;
+        std::cout << "\n empty and size" << std::endl;
+		std::cout << MyQueue.empty() << std::endl;
+		std::cout << MyQueue.size() << std::endl;
+	}
+	std::cout << std::endl;
+	{
+		ft::queue<int> MyQueue;
+        std::cout << "\n push" << std::endl;
+		MyQueue.push(88);
+		std::cout << MyQueue.empty() << std::endl;
+		MyQueue.push(44);
+		std::cout << MyQueue.size() << std::endl;
+        std::cout << "--------stack Mystack--------" << std::endl;
+        print_queue(MyQueue);
+        std::cout << "\n back" << std::endl;
+		std::cout << MyQueue.back() << std::endl;
+        std::cout << "\n pop" << std::endl;
+		MyQueue.pop();
+		std::cout << MyQueue.back() << std::endl;
+		std::cout << MyQueue.size() << std::endl;
+		MyQueue.pop();
+		std::cout << MyQueue.back() << std::endl;
+		std::cout << MyQueue.size() << std::endl;
+	}
+	std::cout << std::endl;
+	{
+		ft::queue<int> MyQueue;
+		std::cout << MyQueue.empty() << std::endl;
+		MyQueue.push(88);
+        std::cout << "\n front" << std::endl;
+		std::cout << MyQueue.front() << std::endl;
+		MyQueue.push(44);
+		std::cout << MyQueue.front() << std::endl;
+		std::cout << MyQueue.size() << std::endl;
+		MyQueue.pop();
+		std::cout << MyQueue.size() << std::endl;
+		std::cout << MyQueue.front() << std::endl;
+		MyQueue.pop();
+		std::cout << MyQueue.size() << std::endl;
+	}
+    std::cout << std::endl;
+	{
+		ft::queue<int> MyQueue1;
+		ft::queue<int> MyQueue2;
 
-    a.push(1);
-    a.push(2);
-    a.push(3);
-    a.push(5);
+		MyQueue1.push(100);
+		MyQueue1.push(44);
 
-    b.push(1);
-    b.push(2);
-    b.push(3);
-    b.push(5);
-    b.push(1);
+		MyQueue2.push(100);
+		MyQueue2.push(44);
 
-    x.push(1);
-    x.push(2);
-    x.push(3);
-    x.push(5);
-
-    y.push(1);
-    y.push(2);
-    y.push(3);
-    y.push(5);
-    y.push(1);
-
-    std::cout << (y > x) << (y < x) << (y == x) << (y >= x) << (y <= x) << std::endl;
-    std::cout << (b > a) << (b < a) << (b == a) << (b >= a) << (b <= a) << std::endl;
-
-    // std::cout << a.empty() << std::endl;
-    // while(a.size())
-    // {
-    //     std::cout << a.front() << std::endl;
-    //     a.pop();
-    // }
-    // std::cout << a.empty() << std::endl;
+		if (MyQueue1 == MyQueue2)
+			std::cout << "MyQueue1 is equal to MyQueue2" << std::endl;
+		if (MyQueue1 < MyQueue2)
+			std::cout << "MyQueue1 is smaller than MyQueue2" << std::endl;
+		if (MyQueue1 <= MyQueue2)
+			std::cout << "MyQueue1 is smaller than or equal to MyQueue2" << std::endl;
+		if (MyQueue1 > MyQueue2)
+			std::cout << "MyQueue1 is larger than MyQueue2" << std::endl;
+		if (MyQueue1 >= MyQueue2)
+			std::cout << "MyQueue1 is larger than or equal to MyQueue2" << std::endl;
+	}
 }

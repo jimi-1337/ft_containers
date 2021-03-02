@@ -6,7 +6,7 @@
 /*   By: amoujane <amoujane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 15:00:40 by amoujane          #+#    #+#             */
-/*   Updated: 2021/02/18 16:03:07 by amoujane         ###   ########.fr       */
+/*   Updated: 2021/03/01 15:41:55 by amoujane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,46 +14,63 @@
 #include <stack>
 #include <iostream>
 
+void print_stack(ft::stack<int> a)
+{
+    while(a.size())
+    {
+        std::cout << a.top() << std::endl;
+        a.pop();
+    }
+}
+
 int main()
 {
-    std::stack<int> a;
-    std::stack<int> b;
-    ft::stack<int> x;
-    ft::stack<int> y;
-    a.push(1);
-    a.push(2);
-    a.push(3);
-    a.push(4);
+	{
+		ft::stack<int> MyStack;
+        std::cout << "\n empty and size" << std::endl;
+		std::cout << MyStack.empty() << std::endl;
+		std::cout << MyStack.size() << std::endl;
+	}
+	std::cout << std::endl;
+	{
+		ft::stack<int> MyStack;
+        std::cout << "\n push" << std::endl;
+		MyStack.push(88);
+		std::cout << MyStack.empty() << std::endl;
+		MyStack.push(44);
+        std::cout << "--------stack Mystack--------" << std::endl;
+        print_stack(MyStack);
+        std::cout << "\n top" << std::endl;
+		std::cout << MyStack.top() << std::endl;
+		std::cout << MyStack.size() << std::endl;
+        std::cout << "\n pop" << std::endl;
+		MyStack.pop();
+		std::cout << MyStack.size() << std::endl;
+		std::cout << MyStack.top() << std::endl;
+		MyStack.pop();
+		std::cout << MyStack.size() << std::endl;
+	}
+    std::cout << std::endl;
+	{
+        std::cout << "--------relational operators--------" << std::endl;
+		ft::stack<int> MyStack1;
+		ft::stack<int> MyStack2;
 
-    b.push(1);
-    b.push(2);
-    b.push(3);
-    b.push(1); 
-    b.push(5);
+		MyStack1.push(100);
+		MyStack1.push(44);
 
-    x.push(1);
-    x.push(2);
-    x.push(3);
-    x.push(4);
+		MyStack2.push(100);
+		MyStack2.push(44);
 
-    y.push(1);
-    y.push(2);
-    y.push(3);
-    y.push(1);
-    y.push(5);
-
-
-    std::cout << (b > a) << (b < a) << (b == a) << (b >= a) << (b <= a) << std::endl;
-    // if (b > a)
-    //     std::cout << "dsds" << std::endl;
-    // // std::cout << a.size() << std::endl;
-    // std::cout << a.empty() << std::endl;
-    // int i = 0;
-    // while(a.size())
-    // {
-    //     std::cout << a.top() << std::endl;
-    //     a.pop();
-    // }
-    // std::cout << a.empty() << std::endl;
-    // // std::cout << a.size() << std::endl;
+		if (MyStack1 == MyStack2)
+			std::cout << "MyStack1 is equal to MyStack2" << std::endl;
+		if (MyStack1 < MyStack2)
+			std::cout << "MyStack1 is smaller than MyStack2" << std::endl;
+		if (MyStack1 <= MyStack2)
+			std::cout << "MyStack1 is smaller than or equal to MyStack2" << std::endl;
+		if (MyStack1 > MyStack2)
+			std::cout << "MyStack1 is larger than MyStack2" << std::endl;
+		if (MyStack1 >= MyStack2)
+			std::cout << "MyStack1 is larger than or equal to MyStack2" << std::endl;
+	}
 }

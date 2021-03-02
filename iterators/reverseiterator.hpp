@@ -6,7 +6,7 @@
 /*   By: amoujane <amoujane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 17:42:01 by amoujane          #+#    #+#             */
-/*   Updated: 2021/02/12 18:15:33 by amoujane         ###   ########.fr       */
+/*   Updated: 2021/02/28 15:44:25 by amoujane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,10 +132,10 @@ class ReverseRAI : public ReverseI<Iterator> {
 		ReverseRAI(const iterator_type& x) : Base(x) { }
 		ReverseRAI(const ReverseRAI& x) : Base(x.current) { }
 		template<typename Iter>
-		ReverseRAI(const ReverseI<Iter>& x) : Base(x.base()) { } //.base() returns the underlying iterator
+		ReverseRAI(const ReverseI<Iter>& x) : Base(x.geter()) { } //.geter() returns the underlying iterator
 		~ReverseRAI() { }
 		// ReverseRAI&	operator=(const ReverseRAI& x) {
-		// 	Base::operator=(x);
+		// 	geter::operator=(x);
 		// 	return *this;
 		// }
 
@@ -160,16 +160,16 @@ class ReverseRAI : public ReverseI<Iterator> {
 
 template<typename Iterator>
 inline typename ReverseRAI<Iterator>::difference_type operator-(const ReverseRAI<Iterator>& lhs, const ReverseRAI<Iterator>& rhs) {
-	return (lhs.base() - rhs.base());
+	return (lhs.geter() - rhs.geter());
 }
 template<typename IteratorL, typename IteratorR>
 inline typename ReverseRAI<IteratorL>::difference_type operator-(const ReverseRAI<IteratorL>& lhs, const ReverseRAI<IteratorR>& rhs) {
-	return (lhs.base() - rhs.base());
+	return (lhs.geter() - rhs.geter());
 }
 
 template <typename Iterator>
 inline ReverseRAI<Iterator>	operator+(typename ReverseRAI<Iterator>::difference_type n, const ReverseRAI<Iterator>& x) {
-	return ReverseRAI<Iterator>(x.base() - n);
+	return ReverseRAI<Iterator>(x.geter() - n);
 }
 
 #endif

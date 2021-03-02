@@ -6,7 +6,7 @@
 /*   By: amoujane <amoujane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 18:02:26 by amoujane          #+#    #+#             */
-/*   Updated: 2021/02/27 18:53:26 by amoujane         ###   ########.fr       */
+/*   Updated: 2021/02/28 15:15:16 by amoujane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,11 +174,13 @@ int main()
     std::cout << "-----list y------" << std::endl;
     print_list(y);
     // clear
+    std::cout << "\nclear" << std::endl;
     x.clear();
     std::cout << "-----list x------" << std::endl;
     print_list(x);
 
     // erase
+    std::cout << "\nerase" << std::endl;
     x.push_back(1);
     x.push_back(2);
     x.push_front(3);
@@ -195,6 +197,7 @@ int main()
     print_list(x);
 
     //swap
+    std::cout << "\nswap" << std::endl;
     x.swap(y);
     std::cout << "-----list x------" << std::endl;
     print_list(x);
@@ -204,6 +207,7 @@ int main()
     std::cout << y.size() << std::endl;
 
     //resize
+    std::cout << "\nresize" << std::endl;
     y.resize(10, 9);
     std::cout << "-----list y------" << std::endl;
     print_list(y);
@@ -211,6 +215,7 @@ int main()
     std::cout << y.size() << std::endl;
 
     //merge
+    std::cout << "\nmerge" << std::endl;
     i.push_back(5);
     i.push_back(4);
     i.push_back(3);
@@ -225,6 +230,7 @@ int main()
     std::cout << i.size() << std::endl;
     std::cout << t.size() << std::endl;
     //splice
+    std::cout << "\nsplice" << std::endl;
     ft::list<int> mylist1, mylist2;
     // ft::list<int>::iterator it;
 
@@ -262,6 +268,7 @@ int main()
     std::cout << '\n';
 
     //remove
+    std::cout << "\nremove" << std::endl;
     mylist1.push_back(30);
     mylist1.push_back(11);
     std::cout << "------size-------" << std::endl;
@@ -271,7 +278,9 @@ int main()
     print_list(mylist1);
     std::cout << "------size-------" << std::endl;
     std::cout << mylist1.size() << std::endl;
+    
     //remove_if
+    std::cout << "\nremove_if" << std::endl;
     mylist1.remove_if (single_digit);           // 10 20 11
     std::cout << "-----list 1------" << std::endl;
     print_list(mylist1);
@@ -282,7 +291,9 @@ int main()
     print_list(mylist1);
     std::cout << "------size-------" << std::endl;
     std::cout << mylist1.size() << std::endl;
+    
     //unique
+    std::cout << "\nunique" << std::endl;
     x.clear();
     x.push_back(1);
     x.push_back(1);
@@ -303,7 +314,7 @@ int main()
     std::cout << x.size() << std::endl;
 
     //sort
-    printf("-------sort---------\n");
+    std::cout << "\nsort" << std::endl;
     x.clear();
     x.push_back(1);
     x.push_back(3);
@@ -324,7 +335,9 @@ int main()
     c.sort(compare_nocase);
     std::cout << "-----list c------" << std::endl;
     print_list_c(c);
+    
     //reverse
+    std::cout << "\nreverse" << std::endl;
     x.reverse();
     std::cout << "-----list x------" << std::endl;
     print_list(x);

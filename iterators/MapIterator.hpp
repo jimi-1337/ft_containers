@@ -56,7 +56,7 @@ public:
 		return out;
 	}
 	template<typename T2, typename P, typename R>
-	friend bool operator==(const this_type& lhs, const MapIterator<T2, P, R>& rhs) {
+	friend bool operator==(this_type const &lhs, MapIterator<T2, P, R> const &rhs) {
 		return (lhs.ptr == rhs.ptr);
 	}
 	template<typename T2, typename P, typename R>

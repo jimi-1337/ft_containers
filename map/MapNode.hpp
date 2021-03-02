@@ -6,7 +6,7 @@
 /*   By: amoujane <amoujane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 14:54:39 by amoujane          #+#    #+#             */
-/*   Updated: 2021/02/17 14:53:41 by amoujane         ###   ########.fr       */
+/*   Updated: 2021/03/01 14:52:28 by amoujane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ namespace ft{
 		node (const node &other) : data(other), next(0), prev(0) {}
 		~node() {};
 		node &operator=(node const &rhs) {
-			printf("-----------\n");
 			if (this != &rhs)
 			{
 				this->datat = rhs.data;
@@ -44,7 +43,7 @@ namespace ft{
 			return (*this);
 		}
 		bool &operator==(node const &rhs) {
-			return(this->data == rhs.data && this->next = rhs.next && this->prev = rhs.prev);
+			return(this->data == rhs.data && this->next == rhs.next && this->prev == rhs.prev);
 		}
 		bool	operator!=(const node& rhs) const {
 			return *this != rhs;
